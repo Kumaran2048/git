@@ -273,3 +273,141 @@
   line-height: normal;
   white-space: nowrap;
 }
+/* =========================
+   MOBILE RESPONSIVE FIX
+   ========================= */
+@media (max-width: 768px) {
+
+  .frame {
+    justify-content: flex-start;
+  }
+
+  .frame .div {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Make all fixed-width sections full width */
+  .frame .overlap,
+  .frame .vector,
+  .frame .overlap-group,
+  .frame .rectangle-5,
+  .frame .overlap-2,
+  .frame .PUZHAL-CAMPII-wrapper,
+  .frame .overlap-3,
+  .frame .subtract {
+    width: 100%;
+    left: 0;
+  }
+
+  /* Header */
+  .frame .logo {
+    width: 70px;
+    height: 70px;
+    top: 10px;
+    left: 15px;
+  }
+
+  .frame .text-wrapper {
+    font-size: 36px;
+    width: auto;
+    left: 100px;
+    top: 40px;
+    white-space: normal;
+  }
+
+  /* Menu bars */
+  .frame .rectangle-2,
+  .frame .rectangle-3,
+  .frame .rectangle-4 {
+    left: auto;
+    right: 20px;
+    width: 40px;
+  }
+
+  /* Green stats section */
+  .frame .overlap-2 {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .frame .text-wrapper-2 {
+    font-size: 48px;
+    position: relative;
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .frame .text-wrapper-3,
+  .frame .text-wrapper-4 {
+    font-size: 28px;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    line-height: normal;
+  }
+
+  /* Center image block */
+  .frame .rectangle,
+  .frame .screenshot {
+    position: relative;
+    width: 80%;
+    height: auto;
+    left: 10%;
+    top: 40px;
+  }
+
+  /* Text sections */
+  .frame .text-wrapper-5,
+  .frame .text-wrapper-6 {
+    position: relative;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    font-size: 36px;
+  }
+
+  /* PUZHAL section */
+  .frame .PUZHAL-CAMPII {
+    position: relative;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    font-size: 34px;
+  }
+
+  /* Bottom icons */
+  .frame .ellipse {
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .frame .f {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+  }
+
+  .frame .user-prof,
+  .frame .img {
+    width: 60px;
+    height: 60px;
+    top: 120px;
+  }
+
+  .frame .user-prof {
+    left: 20%;
+  }
+
+  .frame .img {
+    left: 70%;
+  }
+}
