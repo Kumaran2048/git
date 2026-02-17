@@ -226,9 +226,11 @@
   top: 0;
   left: 464px;
   border-radius: 76px;
-  background: linear-gradient(136deg,
-      rgba(49, 191, 255, 1) 0%,
-      rgba(91, 143, 253, 1) 100%);
+  background: linear-gradient(
+    136deg,
+    rgba(49, 191, 255, 1) 0%,
+    rgba(91, 143, 253, 1) 100%
+  );
 }
 
 .frame .f {
@@ -271,7 +273,6 @@
   line-height: normal;
   white-space: nowrap;
 }
-
 /* =========================
    MOBILE RESPONSIVE FIX
    ========================= */
