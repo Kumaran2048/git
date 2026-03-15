@@ -1,0 +1,273 @@
+.frame {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.frame .div {
+  background-color: #ffffff;
+  width: 1080px;
+  height: 2074px;
+  position: relative;
+}
+
+.frame .overlap {
+  position: absolute;
+  width: 1080px;
+  height: 891px;
+  top: 525px;
+  left: 0;
+}
+
+.frame .vector {
+  position: absolute;
+  width: 1080px;
+  height: 761px;
+  top: 0;
+  left: 0;
+}
+
+.frame .rectangle {
+  position: absolute;
+  width: 323px;
+  height: 302px;
+  top: 577px;
+  left: 379px;
+  background-color: #ffffff;
+}
+
+.frame .screenshot {
+  position: absolute;
+  width: 314px;
+  height: 303px;
+  top: 588px;
+  left: 384px;
+  object-fit: cover;
+}
+
+.frame .overlap-group {
+  position: absolute;
+  width: 1080px;
+  height: 147px;
+  top: 0;
+  left: 0;
+  background-color: #418bec;
+}
+
+.frame .rectangle-2 {
+  position: absolute;
+  width: 59px;
+  height: 10px;
+  top: 49px;
+  left: 916px;
+  background-color: #d9d9d9;
+  border-radius: 1px;
+}
+
+.frame .rectangle-3 {
+  position: absolute;
+  width: 59px;
+  height: 10px;
+  top: 68px;
+  left: 916px;
+  background-color: #d9d9d9;
+  border-radius: 1px;
+}
+
+.frame .rectangle-4 {
+  position: absolute;
+  width: 59px;
+  height: 10px;
+  top: 88px;
+  left: 916px;
+  background-color: #d9d9d9;
+  border-radius: 1px;
+}
+
+.frame .logo {
+  position: absolute;
+  width: 123px;
+  height: 123px;
+  top: 11px;
+  left: 34px;
+  object-fit: cover;
+}
+
+.frame .text-wrapper {
+  position: absolute;
+  width: 651px;
+  top: 20px;
+  left: 215px;
+  font-family: "Markazi Text", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 85px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.frame .rectangle-5 {
+  position: absolute;
+  width: 1080px;
+  height: 9px;
+  top: 147px;
+  left: 0;
+  background-color: #fafafa;
+}
+
+.frame .overlap-2 {
+  position: absolute;
+  width: 1078px;
+  height: 257px;
+  top: 156px;
+  left: 2px;
+  background-color: #1eb100;
+}
+
+.frame .text-wrapper-2 {
+  position: absolute;
+  width: 306px;
+  top: 117px;
+  left: 416px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 96px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.frame .text-wrapper-3 {
+  position: absolute;
+  width: 235px;
+  top: 51px;
+  left: 614px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 57px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.frame .text-wrapper-4 {
+  position: absolute;
+  width: 356px;
+  top: 52px;
+  left: 249px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 57px;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.frame .text-wrapper-5 {
+  position: absolute;
+  width: 351px;
+  top: 1441px;
+  left: 384px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #1e1e1e;
+  font-size: 66px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.frame .PUZHAL-CAMPII-wrapper {
+  position: absolute;
+  width: 1078px;
+  height: 111px;
+  top: 1649px;
+  left: 1px;
+  background-color: #1eb100;
+}
+
+.frame .PUZHAL-CAMPII {
+  position: absolute;
+  width: 599px;
+  top: 18px;
+  left: 253px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 60px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.frame .overlap-3 {
+  position: absolute;
+  width: 1080px;
+  height: 196px;
+  top: 1878px;
+  left: 0;
+}
+
+.frame .subtract {
+  position: absolute;
+  width: 1080px;
+  height: 150px;
+  top: 46px;
+  left: 0;
+}
+
+.frame .ellipse {
+  position: absolute;
+  width: 152px;
+  height: 152px;
+  top: 0;
+  left: 464px;
+  border-radius: 76px;
+  background: linear-gradient(136deg,
+      rgba(49, 191, 255, 1) 0%,
+      rgba(91, 143, 253, 1) 100%);
+}
+
+.frame .f {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  top: 31px;
+  left: 495px;
+  object-fit: cover;
+}
+
+.frame .user-prof {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  top: 78px;
+  left: 164px;
+  object-fit: cover;
+}
+
+.frame .img {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  top: 76px;
+  left: 826px;
+  object-fit: cover;
+}
+
+.frame .text-wrapper-6 {
+  position: absolute;
+  width: 467px;
+  top: 1532px;
+  left: 388px;
+  font-family: "Inter", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 61px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}

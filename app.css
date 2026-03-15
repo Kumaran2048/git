@@ -1,0 +1,698 @@
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@700&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+/* Base Top Header */
+.app-header {
+    height: 60px;
+    background-color: #418bec;
+    /* Light blue */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    color: white;
+    z-index: 10;
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Markazi Text', serif;
+    letter-spacing: 0.5px;
+}
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background-color: #418bec;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 200;
+}
+
+.nav-item {
+    color: white;
+    font-size: 22px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.center-nav-item {
+    position: relative;
+}
+
+.center-circle {
+    width: 65px;
+    height: 65px;
+    background-color: #418bec;
+    border-radius: 50%;
+    border: 4px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    transform: translateY(-20px);
+}
+
+/* Main Content Area */
+.app-content {
+    height: calc(100% - 60px - 55px);
+    overflow-y: auto;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.tab-view {
+    display: none;
+    min-height: 100%;
+}
+
+.tab-view.active {
+    display: block;
+}
+
+/* HOME TAB (TICKET) */
+.valid-banner {
+    background-color: #1eb100;
+    color: white;
+    text-align: center;
+    padding: 15px 0 10px;
+}
+
+.ticket-datetime {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.ticket-status {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ticket-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    background: #ffffff;
+}
+
+.avatar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.profile-pic {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.qr-container {
+    margin-top: -65px;
+    background: white;
+    padding: 4px;
+    position: relative;
+    z-index: 2;
+}
+
+.qr-code {
+    width: 110px;
+    height: 110px;
+    display: block;
+}
+
+.user-name {
+    margin: 15px 0 5px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
+}
+
+.user-id {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+
+.route-banner {
+    background-color: #1eb100;
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* PROFILE TAB */
+.profile-card-container {
+    padding: 15px;
+    position: relative;
+}
+
+.profile-card {
+    border: 1px solid #d3d3d3;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 15px;
+}
+
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-image: url('https://c.animaapp.com/lg0au8RQ/img/logo@2x.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.profile-avatar-wrapper {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-avatar-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    padding: 2px;
+    background: #fff;
+    object-fit: cover;
+}
+
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    position: relative;
+    z-index: 2;
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.profile-table td {
+    padding: 8px 0;
+    vertical-align: top;
+}
+
+.profile-table .label {
+    font-weight: 500;
+    color: #444;
+    width: 115px;
+}
+
+.profile-table .separator {
+    width: 20px;
+    text-align: center;
+    color: #444;
+}
+
+.profile-table .value {
+    color: #222;
+}
+
+.profile-btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-blue {
+    background-color: #418bec;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    flex: 1;
+}
+
+/* NOTIFICATION TAB */
+.notification-title {
+    text-align: center;
+    color: #418bec;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.carousel-img {
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.carousel-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bbb;
+}
+
+.carousel-dots .dot.active {
+    background-color: #222;
+}
+
+.notification-card-wrapper {
+    position: relative;
+    padding: 0 15px;
+    min-height: 250px;
+    /* Space for watermark */
+}
+
+.watermark-notification {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
+    background-image: url('https://c.animaapp.com/lg0au8RQ/img/logo@2x.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.notification-card {
+    background: white;
+    position: relative;
+    z-index: 2;
+    border-left: 3px solid #1a73e8;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.notif-row {
+    margin: 5px 0;
+}
+
+/* SIDE MENU */
+.side-menu {
+    position: fixed;
+    top: 60px;
+    /* starts below header */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    z-index: 300;
+    pointer-events: none;
+}
+
+.side-menu.open {
+    pointer-events: auto;
+}
+
+.menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s;
+}
+
+.menu-panel {
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 75%;
+    height: 100%;
+    background: white;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.open .menu-panel {
+    left: 0;
+}
+
+.close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #777;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #f8f9fa;
+}
+
+.menu-icon {
+    width: 30px;
+    color: #418bec;
+    font-size: 18px;
+    text-align: left;
+    margin-right: 15px;
+}
+
+.dropdown-icon {
+    margin-left: auto;
+    color: #777;
+    font-size: 14px;
+}
+
+/* PHOTO UPLOAD TAB */
+.photo-upload-container {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.photo-title {
+    color: #418bec;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.photo-subtitle-purple {
+    color: #7831ac;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.photo-subtitle-red {
+    color: #a82e2e;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.photo-instructions {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333;
+    margin: 0 auto 25px auto;
+    max-width: 400px;
+}
+
+.photo-instructions li {
+    margin-bottom: 12px;
+}
+
+.photo-instructions .underline {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.photo-upload-box {
+    border: 1px solid #418bec;
+    border-radius: 20px;
+    padding: 40px 10px;
+    position: relative;
+    overflow: hidden;
+    background: white;
+    margin: 0 auto;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.watermark-upload {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    background-image: url('https://c.animaapp.com/lg0au8RQ/img/logo@2x.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.upload-row {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.upload-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: #222;
+}
+
+#photo-file-input {
+    border: 1px solid #ccc;
+    padding: 4px;
+    max-width: 180px;
+    background: white;
+}
+
+.submit-btn {
+    width: 120px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+/* AUTHENTICATION OVERLAYS */
+.auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Splash */
+.splash-content {
+    text-align: center;
+}
+
+.splash-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.splash-title {
+    color: #4b8deb;
+    /* Original lighter blue from the old app */
+    font-size: 28px;
+    font-weight: 700;
+    margin: 15px 0 10px;
+    letter-spacing: 0.5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* Match the serif font specifically seen in the splash image */
+}
+
+.splash-loading {
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    /* Widen the letter spacing drastically to match the image */
+    margin-top: 15px;
+}
+
+/* Login */
+.auth-header-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #418bec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-header-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Markazi Text', serif;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.login-title {
+    color: #418bec;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+.login-input:focus {
+    border-color: #418bec;
+}
+
+.login-btn {
+    background-color: #418bec;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.login-footer {
+    font-size: 14px;
+    color: #000;
+    font-weight: 600;
+}
+
+.signup-link {
+    color: #418bec;
+    cursor: pointer;
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SIMATS Transport</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="HandheldFriendly" content="true">
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Original Anima styles for ticket tab -->
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- New SPA styles -->
+  <link rel="stylesheet" href="app.css" />
+
+  <style>
+    /* Ensure the ticket scaler doesn't overflow horizontally */
+    .ticket-scaler {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Splash Screen -->
+  <div id="splash-screen" class="auth-overlay">
+    <div class="splash-content">
+      <img src="https://c.animaapp.com/lg0au8RQ/img/logo@2x.png" alt="Logo" class="splash-logo" />
+      <h1 class="splash-title">SIMATS TRANSPORT</h1>
+      <p class="splash-loading">LOADING . . .</p>
+    </div>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="auth-overlay" style="display: none;">
+    <div class="auth-header-bar">
+      <div class="auth-header-title">SIMATS TRANSPORTS</div>
+    </div>
+    <div class="login-box">
+      <img src="https://c.animaapp.com/lg0au8RQ/img/logo@2x.png" alt="Logo" class="login-logo" />
+      <h2 class="login-title">Login</h2>
+      <input type="text" id="login-id" class="login-input" placeholder="Enter Staff ID / Student ID" />
+      <input type="password" id="login-pass" class="login-input" placeholder="Enter Password" />
+      <button class="login-btn" onclick="handleLogin()"><i class="fa-solid fa-key"></i> Login</button>
+      <p class="login-footer">Do not have an account? <span class="signup-link">Sign up</span></p>
+    </div>
+  </div>
+
+  <!-- Top Header (Hidden on Home tab via JS) -->
+  <header class="app-header">
+    <div class="header-left">
+      <img src="https://c.animaapp.com/lg0au8RQ/img/logo@2x.png" class="header-logo" alt="Logo" />
+      <h1 class="header-title">SIMATS TRANSPORTS</h1>
+    </div>
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+  </header>
+
+  <!-- Side Menu Overlay and Panel -->
+  <div id="side-menu" class="side-menu">
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+    <div class="menu-panel">
+      <button class="close-btn" onclick="toggleMenu()"><i class="fa fa-times" style="font-weight: 300;"></i></button>
+      <div class="menu-list">
+        <div class="menu-item" onclick="toggleMenu(); switchTab('tab-home')">
+          <i class="fa-regular fa-address-card menu-icon"></i>
+          <span>Pass Details</span>
+          <i class="fa fa-caret-down dropdown-icon"></i>
+        </div>
+        <div class="menu-item" onclick="toggleMenu()">
+          <i class="fa-regular fa-bell menu-icon"></i>
+          <span>Raise Issue</span>
+        </div>
+        <div class="menu-item" onclick="toggleMenu()">
+          <i class="fa-regular fa-calendar-alt menu-icon"></i>
+          <span>Attendance</span>
+        </div>
+        <div class="menu-item" onclick="toggleMenu()">
+          <i class="fa-solid fa-phone-volume menu-icon"></i>
+          <span>Contact</span>
+        </div>
+        <div class="menu-item" onclick="toggleMenu(); handleLogout()">
+          <i class="fa-solid fa-sign-out-alt menu-icon" style="transform: rotate(180deg);"></i>
+          <span>Logout</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Views Area -->
+  <main class="app-content">
+
+    <!-- ================== TAB 1: VALID TICKET ================== -->
+    <div id="tab-home" class="tab-view active">
+      <!-- Green Valid Block -->
+      <div class="valid-banner">
+        <div id="ticket-datetime" class="ticket-datetime">17-FEB-2026 17:25:09</div>
+        <div class="ticket-status">VALID</div>
+      </div>
+
+      <!-- Center Profile Picture + QR -->
+      <div class="ticket-body">
+        <div class="avatar-container">
+          <!-- Using the original pass photo as requested -->
+          <img src="https://c.animaapp.com/lg0au8RQ/img/screenshot-2025-07-11-at-8-27-41-pm-1@2x.png"
+            class="profile-pic" alt="Avatar" />
+        </div>
+        <div class="qr-container">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=192412617" class="qr-code"
+            alt="QR Code" />
+        </div>
+
+        <h2 class="user-name">Kumaran S</h2>
+        <h3 class="user-id">192372048</h3>
+      </div>
+
+      <!-- Green Footer Block -->
+      <div class="route-banner">
+        PUZHAL CAMP II 7B
+      </div>
+
+      <br /><br /><br />
+    </div>
+
+    <!-- ================== TAB 2: PROFILE DETAILS ================== -->
+    <div id="tab-profile" class="tab-view">
+      <div class="profile-card-container">
+        <div class="profile-card">
+          <div class="watermark"></div>
+
+          <div class="profile-avatar-wrapper">
+            <!-- Using the same photo as the pass -->
+            <img src="https://c.animaapp.com/lg0au8RQ/img/screenshot-2025-07-11-at-8-27-41-pm-1@2x.png"
+              class="profile-avatar-circle" id="profile-img-preview" alt="Avatar" />
+          </div>
+
+          <table class="profile-table">
+            <tr>
+              <td class="label">Name</td>
+              <td class="separator">:</td>
+              <td class="value">Kumaran S</td>
+            </tr>
+            <tr>
+              <td class="label">User Id</td>
+              <td class="separator">:</td>
+              <td class="value">192372048</td>
+            </tr>
+            <tr>
+              <td class="label">Institution</td>
+              <td class="separator">:</td>
+              <td class="value">SIMATS</td>
+            </tr>
+            <tr>
+              <td class="label">Bus Route</td>
+              <td class="separator">:</td>
+              <td class="value">PUZHAL CAMP 7B</td>
+            </tr>
+            <tr>
+              <td class="label">Boarding Point</td>
+              <td class="separator">:</td>
+              <td class="value">Pudur</td>
+            </tr>
+            <tr>
+              <td class="label">Destination</td>
+              <td class="separator">:</td>
+              <td class="value">Thandalam Campus</td>
+            </tr>
+          </table>
+
+          <div class="profile-btn-group">
+            <button class="btn-blue">Change Password</button>
+            <button class="btn-blue" onclick="switchTab('tab-photo')">Change Profile Photo</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================== TAB: PHOTO UPLOAD ================== -->
+    <div id="tab-photo" class="tab-view">
+      <div class="photo-upload-container">
+        <h2 class="photo-title">Change E - Buspass Photo</h2>
+        <p class="photo-subtitle-purple">Upload a beautiful photo, Not an ugly one.</p>
+        <p class="photo-subtitle-red">This link activate only one time !..<br>Do Carefully!..</p>
+
+        <ul class="photo-instructions">
+          <li>* E-Buspass photo <span class="underline">background color should be in white</span> & It should be JPEG,
+            PNG format only</li>
+          <li>* E-Buspass photo(passport model photo) size should be less than 5MB</li>
+        </ul>
+
+        <div class="photo-upload-box">
+          <div class="watermark-upload"></div>
+          <div class="upload-row">
+            <span class="upload-label">E-Buspass Photo</span>
+            <input type="file" id="photo-file-input" accept="image/png, image/jpeg" />
+          </div>
+          <button class="btn-blue submit-btn" onclick="
+            const fileInput = document.getElementById('photo-file-input');
+            if(fileInput.files && fileInput.files[0]) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                document.getElementById('profile-img-preview').src = e.target.result;
+                document.querySelector('#tab-home .profile-pic').src = e.target.result;
+                localStorage.setItem('savedProfilePic', e.target.result);
+                switchTab('tab-profile');
+              };
+              reader.readAsDataURL(fileInput.files[0]);
+            } else {
+              alert('Please select a photo to upload.');
+            }
+          ">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================== TAB 3: NOTIFICATIONS ================== -->
+    <div id="tab-notification" class="tab-view">
+      <h2 class="notification-title">Notification</h2>
+
+      <div class="carousel-container">
+        <div class="carousel-images">
+          <img src="https://via.placeholder.com/600x400.png?text=Transportation+Pickup+Route+Schedule+Details"
+            class="carousel-img" />
+        </div>
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="notification-card-wrapper">
+        <div class="watermark-notification"></div>
+        <div class="notification-card">
+          <div class="notif-row"><strong>Date:</strong> 2026-02-17</div>
+          <div class="notif-row"><strong>Message:</strong> 2026.02.18 Pickup schedule</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item" onclick="switchTab('tab-profile')">
+      <i class="fa fa-user"></i>
+    </div>
+
+    <div class="nav-item center-nav-item" onclick="switchTab('tab-home')">
+      <div class="center-circle">
+        <i class="fa fa-house-chimney" style="font-size: 28px;"></i>
+      </div>
+    </div>
+
+    <div class="nav-item" onclick="switchTab('tab-notification')">
+      <i class="fa fa-bell"></i>
+    </div>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
