@@ -110,11 +110,16 @@ html {
 
 .tab-view {
     display: none;
-    min-height: 100%;
+    height: 100%;
 }
 
 .tab-view.active {
     display: block;
+}
+
+#tab-home.active {
+    display: flex;
+    flex-direction: column;
 }
 
 /* HOME TAB (TICKET) */
@@ -145,8 +150,9 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
     background: #ffffff;
+    flex-grow: 1;
+    /* Takes up remaining space in tab-home */
 }
 
 .avatar-container {
@@ -154,13 +160,16 @@ html {
     display: flex;
     justify-content: center;
     overflow: hidden;
+    flex-grow: 1;
+    /* Allows photo area to stretch naturally */
 }
 
 .profile-pic {
     width: 100%;
-    height: auto;
-    max-width: 100%;
+    height: 100%;
+    /* Fills the stretched container */
     object-fit: cover;
+    object-position: top;
     display: block;
 }
 
@@ -199,6 +208,8 @@ html {
     padding: 12px 0;
     font-size: 20px;
     font-weight: 700;
+    margin-bottom: 5px;
+    /* Creates the 5px white gap perfectly above the bottom bar */
 }
 
 /* PROFILE TAB */
