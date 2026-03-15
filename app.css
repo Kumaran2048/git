@@ -124,19 +124,24 @@ html {
     background-color: #1eb100;
     color: white;
     text-align: center;
-    padding: 15px 0 10px;
+    padding: 20px 0 15px;
+    /* Increased padding top and bottom */
 }
 
 .ticket-datetime {
-    font-size: 16px;
+    font-size: 20px;
+    /* Larger date/time font */
     font-weight: 500;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    /* Slightly more space before VALID */
 }
 
 .ticket-status {
-    font-size: 34px;
+    font-size: 44px;
+    /* Much larger VALID text */
     font-weight: 700;
     letter-spacing: 1px;
+    margin: 0;
 }
 
 .ticket-body {
