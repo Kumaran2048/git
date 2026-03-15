@@ -188,8 +188,8 @@ html {
 }
 
 .user-name {
-    margin: 8px 0 8px;
-    /* Pulled up closer to QR, with slightly more space below it */
+    margin: 2px 0 10px;
+    /* Pulled up much closer to QR to avoid smudging, creating a distinct white gap below before ID */
     font-size: 22px;
     font-weight: 700;
     color: #000;
