@@ -188,7 +188,8 @@ html {
 }
 
 .user-name {
-    margin: 15px 0 5px;
+    margin: 8px 0 8px;
+    /* Pulled up closer to QR, with slightly more space below it */
     font-size: 22px;
     font-weight: 700;
     color: #000;
