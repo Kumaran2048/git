@@ -208,8 +208,8 @@ html {
     padding: 12px 0;
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 5px;
-    /* Creates the 5px white gap perfectly above the bottom bar */
+    margin-bottom: 35px;
+    /* Clears the center Home button overlap perfectly and leaves a white gap */
 }
 
 /* PROFILE TAB */
