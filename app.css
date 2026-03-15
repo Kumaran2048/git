@@ -124,24 +124,19 @@ html {
     background-color: #1eb100;
     color: white;
     text-align: center;
-    padding: 20px 0 15px;
-    /* Increased padding top and bottom */
+    padding: 15px 0 10px;
 }
 
 .ticket-datetime {
-    font-size: 20px;
-    /* Larger date/time font */
+    font-size: 16px;
     font-weight: 500;
-    margin-bottom: 8px;
-    /* Slightly more space before VALID */
+    margin-bottom: 5px;
 }
 
 .ticket-status {
-    font-size: 44px;
-    /* Much larger VALID text */
+    font-size: 34px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin: 0;
 }
 
 .ticket-body {
@@ -162,36 +157,42 @@ html {
 .profile-pic {
     width: 100%;
     height: auto;
-    max-width: 380px;
-    max-height: 380px;
-    object-fit: contain;
+    max-height: 55vh;
+    /* Keep it responsive to screen height */
+    object-fit: cover;
+    object-position: top;
+    /* Ensure face is always visible without cutting off top */
     display: block;
 }
 
 .qr-container {
-    margin-top: -65px;
+    margin-top: -80px;
+    /* Pull QR code further up into the white shirt area */
     background: white;
-    padding: 6px;
+    padding: 5px;
     position: relative;
     z-index: 2;
 }
 
 .qr-code {
-    width: 110px;
-    height: 110px;
+    width: 130px;
+    /* Increased size to match screenshot */
+    height: 130px;
     display: block;
 }
 
 .user-name {
-    margin: 10px 0 4px;
-    font-size: 21px;
+    margin: 10px 0 5px;
+    font-size: 24px;
+    /* Slightly larger name */
     font-weight: 700;
     color: #000;
 }
 
 .user-id {
-    margin: 0 0 25px;
-    font-size: 17px;
+    margin: 0 0 20px;
+    /* Reduced bottom margin slightly given larger QR */
+    font-size: 18px;
     font-weight: 700;
     color: #000;
 }
