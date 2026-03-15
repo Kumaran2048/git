@@ -1,90 +1,285 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="HandheldFriendly" content="true">
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      html {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-        touch-action: manipulation;
-      }
-      body {
-        touch-action: pan-y;
-      }
-    </style>
-    <script>
-      function updateDateTime() {
-        const now = new Date();
 
-        // Format date as DD-MMM-YYYY
-        const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-        const day = String(now.getDate()).padStart(2, '0');
-        const month = months[now.getMonth()];
-        const year = now.getFullYear();
-        document.getElementById('current-date').textContent = `${day}-${month}-${year}`;
-        
-        // Format time as HH:MM:SS
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
-      }
-      
-      // Prevent double-tap zoom
-      document.addEventListener('dblclick', function(e) {
-        e.preventDefault();
-      }, { passive: false });
-      
-      // Update immediately and then every second
-      document.addEventListener('DOMContentLoaded', function() {
-        updateDateTime();
-        setInterval(updateDateTime, 1000);
-      });
-    </script>
-  </head>
-  <body>
-    <div class="frame" data-model-id="1:2">
-      <div class="div">
-        <div class="overlap">
-          <img class="vector" src="https://c.animaapp.com/lg0au8RQ/img/vector-2.svg" />
-          <div class="rectangle"></div>
-          <img
-            class="screenshot"
-            src="https://c.animaapp.com/lg0au8RQ/img/screenshot-2025-07-11-at-8-27-41-pm-1@2x.png"
-          />
-        </div>
-        <div class="overlap-group">
-          <div class="rectangle-2"></div>
-          <div class="rectangle-3"></div>
-          <div class="rectangle-4"></div>
-          <img class="logo" src="https://c.animaapp.com/lg0au8RQ/img/logo@2x.png" />
-          <div class="text-wrapper">SIMATS TRANSPORTS</div>
-        </div>
-        <div class="rectangle-5"></div>
-        <div class="overlap-2">
-          <div class="text-wrapper-2">VALID</div>
-          <div class="text-wrapper-3" id="current-time">18:49:52</div>
-          <div class="text-wrapper-4" id="current-date">12-JUL-2025</div>
-        </div>
-        <div class="text-wrapper-5">Kumaran S</div>
-        <div class="PUZHAL-CAMPII-wrapper">
-          <div class="PUZHAL-CAMPII">   
-            <center>PUZHAL CAMP 7B</center> &nbsp;&nbsp;
-            </div>
-            </div>
-        <div class="overlap-3">
-          <img class="subtract" src="https://c.animaapp.com/lg0au8RQ/img/subtract.svg" />
-          <div class="ellipse"></div>
-          <img class="f" src="https://c.animaapp.com/lg0au8RQ/img/f5-1@2x.png" />
-          <img class="user-prof" src="https://c.animaapp.com/lg0au8RQ/img/user-prof-1@2x.png" />
-          <img class="img" src="https://c.animaapp.com/lg0au8RQ/img/f3-1@2x.png" />
-        </div>
-        <div class="text-wrapper-6">192372048</div>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="HandheldFriendly" content="true">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      touch-action: manipulation;
+    }
+
+    body {
+      touch-action: pan-y;
+    }
+  </style>
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = months[now.getMonth()];
+      const year = now.getFullYear();
+      document.getElementById('current-date').textContent = `${day}-${month}-${year}`;
+
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    document.addEventListener('dblclick', function (e) {
+      e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
+    });
+
+    // Navigation functions
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+      document.querySelector(`[data-page="${pageId}"]`)?.classList.add('active');
+      closeSidebar();
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('overlay').classList.toggle('active');
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('overlay').classList.remove('active');
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-content">
+      <button class="menu-btn" onclick="toggleSidebar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="header-logo">
+        <img src="https://c.animaapp.com/lg0au8RQ/img/logo@2x.png" alt="SIMATS Logo">
+        <span>SIMATS TRANSPORTS</span>
       </div>
     </div>
-  </body>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <button class="close-btn" onclick="closeSidebar()">×</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="sidebar-item" onclick="showPage('pass')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="6" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2" />
+        </svg>
+        <span>Pass Details</span>
+      </a>
+      <a href="#" class="sidebar-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+          <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span>Raise Issue</span>
+      </a>
+      <a href="#" class="sidebar-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+          <path d="M16 2V6M8 2V6M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span>Attendance</span>
+      </a>
+      <a href="#" class="sidebar-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M22 16.92V19.92C22 20.47 21.55 20.92 21 20.92C9.95 20.44 1.56 12.05 1.08 1C1.08 0.45 1.53 0 2.08 0H5.08C5.63 0 6.08 0.45 6.08 1C6.08 2.1 6.24 3.17 6.55 4.19C6.67 4.59 6.55 5.03 6.24 5.31L4.63 6.92C6.01 10.01 8.99 12.99 12.08 14.37L13.69 12.76C13.97 12.45 14.41 12.33 14.81 12.45C15.83 12.76 16.9 12.92 18 12.92C18.55 12.92 19 13.37 19 13.92V16.92C19 17.47 18.55 17.92 18 17.92H17.08"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <span>Contact</span>
+      </a>
+      <a href="#" class="sidebar-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H9M16 17L21 12M21 12L16 7M21 12H9" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>Logout</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Main Content -->
+  <main class="app-main">
+    <!-- Pass Page -->
+    <div class="page active" id="pass">
+      <div class="frame" data-model-id="1:2">
+        <div class="div">
+          <div class="overlap">
+            <img class="vector" src="https://c.animaapp.com/lg0au8RQ/img/vector-2.svg" />
+            <div class="rectangle"></div>
+            <img class="screenshot"
+              src="https://c.animaapp.com/lg0au8RQ/img/screenshot-2025-07-11-at-8-27-41-pm-1@2x.png" />
+          </div>
+          <div class="overlap-group">
+            <div class="rectangle-2"></div>
+            <div class="rectangle-3"></div>
+            <div class="rectangle-4"></div>
+            <img class="logo" src="https://c.animaapp.com/lg0au8RQ/img/logo@2x.png" />
+            <div class="text-wrapper">SIMATS TRANSPORTS</div>
+          </div>
+          <div class="rectangle-5"></div>
+          <div class="overlap-2">
+            <div class="text-wrapper-2">VALID</div>
+            <div class="text-wrapper-3" id="current-time">18:49:52</div>
+            <div class="text-wrapper-4" id="current-date">12-JUL-2025</div>
+          </div>
+          <div class="text-wrapper-5">Kumaran S</div>
+          <div class="PUZHAL-CAMPII-wrapper">
+            <div class="PUZHAL-CAMPII">
+              <center>PUZHAL CAMP 7B</center> &nbsp;&nbsp;
+            </div>
+          </div>
+          <div class="overlap-3">
+            <img class="subtract" src="https://c.animaapp.com/lg0au8RQ/img/subtract.svg" />
+            <div class="ellipse"></div>
+            <img class="f" src="https://c.animaapp.com/lg0au8RQ/img/f5-1@2x.png" />
+            <img class="user-prof" src="https://c.animaapp.com/lg0au8RQ/img/user-prof-1@2x.png" />
+            <img class="img" src="https://c.animaapp.com/lg0au8RQ/img/f3-1@2x.png" />
+          </div>
+          <div class="text-wrapper-6">192372048</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Page -->
+    <div class="page" id="profile">
+      <div class="profile-container">
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="60" fill="#E0E0E0" />
+              <circle cx="60" cy="45" r="20" fill="#BDBDBD" />
+              <path d="M30 95C30 78 42 70 60 70C78 70 90 78 90 95" fill="#BDBDBD" />
+            </svg>
+          </div>
+          <div class="profile-details">
+            <div class="profile-row">
+              <span class="profile-label">Name</span>
+              <span class="profile-colon">:</span>
+              <span class="profile-value">Kumaran S</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">User Id</span>
+              <span class="profile-colon">:</span>
+              <span class="profile-value">192372048</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Institution</span>
+              <span class="profile-colon">:</span>
+              <span class="profile-value">SIMATS</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Bus Route</span>
+              <span class="profile-colon">:</span>
+              <span class="profile-value">PUZHAL CAMP 7B</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Boarding Point</span>
+              <span class="profile-colon">:</span>
+              <span class="profile-value">Puzhal</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Destination</span>
+              <span class="profile-colon">:</span>
+              <span class="profile-value">Thandalam Campus</span>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn-primary">Change Password</button>
+            <button class="btn-primary">Change Profile Photo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications Page -->
+    <div class="page" id="notifications">
+      <div class="notifications-container">
+        <h2 class="notifications-title">Notification</h2>
+        <div class="notification-card">
+          <div class="notification-header">
+            <span class="notification-date">Date: 2026-02-17</span>
+          </div>
+          <div class="notification-body">
+            <p class="notification-message"><strong>Message:</strong> 2026.02.18 Pickup schedule</p>
+          </div>
+        </div>
+        <div class="notification-card">
+          <div class="notification-header">
+            <span class="notification-date">Date: 2026-02-15</span>
+          </div>
+          <div class="notification-body">
+            <p class="notification-message"><strong>Message:</strong> Bus maintenance scheduled for this weekend</p>
+          </div>
+        </div>
+        <div class="notification-card">
+          <div class="notification-header">
+            <span class="notification-date">Date: 2026-02-10</span>
+          </div>
+          <div class="notification-body">
+            <p class="notification-message"><strong>Message:</strong> New route timings effective from next week</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <button class="nav-item" data-page="profile" onclick="showPage('profile')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M20 21V19C20 17.94 19.58 16.92 18.83 16.17C18.08 15.42 17.06 15 16 15H8C6.94 15 5.92 15.42 5.17 16.17C4.42 16.92 4 17.94 4 19V21M16 7C16 9.21 14.21 11 12 11C9.79 11 8 9.21 8 7C8 4.79 9.79 3 12 3C14.21 3 16 4.79 16 7Z"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span>Profile</span>
+    </button>
+    <button class="nav-item nav-item-center active" data-page="pass" onclick="showPage('pass')">
+      <div class="nav-center-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M3 9L12 2L21 9V20C21 20.53 20.79 21.04 20.41 21.41C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.41C3.21 21.04 3 20.53 3 20V9Z"
+            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </button>
+    <button class="nav-item" data-page="notifications" onclick="showPage('notifications')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M18 8C18 6.41 17.37 4.88 16.24 3.76C15.12 2.63 13.59 2 12 2C10.41 2 8.88 2.63 7.76 3.76C6.63 4.88 6 6.41 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8ZM13.73 21C13.55 21.3 13.3 21.55 13 21.73C12.7 21.9 12.35 22 12 22C11.65 22 11.3 21.9 11 21.73C10.7 21.55 10.45 21.3 10.27 21"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span>Notifications</span>
+    </button>
+  </nav>
+</body>
+
 </html>
