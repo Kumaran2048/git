@@ -128,13 +128,15 @@ html {
 }
 
 .ticket-datetime {
-    font-size: 16px;
+    font-size: 18px;
+    /* Slightly increased size for date and time */
     font-weight: 500;
     margin-bottom: 5px;
 }
 
 .ticket-status {
-    font-size: 34px;
+    font-size: 30px;
+    /* Decreased size for VALID */
     font-weight: 700;
     letter-spacing: 1px;
 }
