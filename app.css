@@ -157,8 +157,8 @@ html {
 .profile-pic {
     width: 100%;
     height: auto;
-    max-height: 55vh;
-    /* Keep it responsive to screen height */
+    max-height: 65vh;
+    /* Stretched length of the image further */
     object-fit: cover;
     object-position: top;
     /* Ensure face is always visible without cutting off top */
@@ -166,7 +166,7 @@ html {
 }
 
 .qr-container {
-    margin-top: -80px;
+    margin-top: -95px;
     /* Pull QR code further up into the white shirt area */
     background: white;
     padding: 5px;
@@ -175,16 +175,16 @@ html {
 }
 
 .qr-code {
-    width: 130px;
+    width: 160px;
     /* Increased size to match screenshot */
-    height: 130px;
+    height: 160px;
     display: block;
 }
 
 .user-name {
     margin: 10px 0 5px;
-    font-size: 24px;
-    /* Slightly larger name */
+    font-size: 28px;
+    /* Larger name */
     font-weight: 700;
     color: #000;
 }
@@ -192,7 +192,7 @@ html {
 .user-id {
     margin: 0 0 20px;
     /* Reduced bottom margin slightly given larger QR */
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: #000;
 }
